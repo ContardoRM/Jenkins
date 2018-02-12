@@ -9,6 +9,9 @@ node("docker") {
         stage "build"
       def app = docker.build "docker_jenkins"
     
+            
+        stage "run"
+      def app = docker.run "docker_jenkins"
       //stage "publish"
       //  app.push 'master'
        // app.push "${commit_id}"
