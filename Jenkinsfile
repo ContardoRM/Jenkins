@@ -7,7 +7,7 @@ node("docker") {
         println commit_id
     
         stage "build"
-      def app = docker.build "docker_jenkins"
+      def app = docker.build "contardorm/jenkins"
     
             
         stage "publish"
