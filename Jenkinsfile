@@ -9,10 +9,17 @@ node("docker") {
         stage "build"
       def app = docker.build "contardorm/jenkins"
     
+        stage ('Run Application') {
+          // Start database container here
+      // sh 'docker run -d --name db -p 8091-8093:8091-8093 -p 11210:11210 arungupta/oreilly-couchbase:latest'
+
+      // Run application using Docker image
+         sh "docker run --name docker-stage -d -p 8000:8000 contardorm/jenkins"
+            }
             
-        stage "publish"
-        app.push 'master'
-       app.push "${commit_id}"
+     //   stage "publish"
+    //    app.push 'master'
+     //  app.push "${commit_id}"
             
       }
     }
