@@ -1,5 +1,5 @@
 node("docker") {
-    docker.withRegistry('contardorm', 'docker-hub-credentials') {
+    docker.withRegistry('https://hub.docker.com/r/contardorm/jenkins', 'docker-hub-credentials') {
     
         git url: "https://github.com/ContardoRM/Jenkins", credentialsId: 'git-hub-credentials'
     
