@@ -1,7 +1,7 @@
 node("docker") {
-    docker.withRegistry('contardo.acuna@gmail.com', 'docker-hub-credentials') {
+    docker.withRegistry('contardorm', 'docker-hub-credentials') {
     
-        git url: "https://github.com/ContardoRM/HelloWorldCI", credentialsId: 'git-hub-credentials'
+        git url: "https://github.com/ContardoRM/Jenkins", credentialsId: 'git-hub-credentials'
     
         sh "git rev-parse HEAD > .git/commit-id"
         def commit_id = readFile('.git/commit-id').trim()
