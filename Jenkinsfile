@@ -1,14 +1,14 @@
 node("docker") {
-    docker.withRegistry('https://hub.docker.com/r/contardorm/jenkins', 'docker-hub-credentials') {
+    docker.withRegistry('contardorm/jenkins', 'docker-hub-credentials') {
     
-        git url: "https://github.com/contardorm/jenkins", credentialsId: 'git-hub-credentials'
+        git url: "https://github.com/ContardoRM/Jenkins.git", credentialsId: 'git-hub-credentials'
     
         sh "git rev-parse HEAD > .git/commit-id"
         def commit_id = readFile('.git/commit-id').trim()
         println commit_id
     
         stage "build"
-        def app = docker.build "Test Jenkins"
+        def app = docker.build "Docker Jenkins"
     
         stage "publish"
         app.push 'master'
