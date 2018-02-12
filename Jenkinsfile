@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("ContardoRM/Jenkins")
+        app = docker.build("contardorm/jenkins")
     }
 
     stage('Test image') {
