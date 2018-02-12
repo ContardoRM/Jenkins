@@ -6,8 +6,8 @@ node("docker") {
         def commit_id = readFile('.git/commit-id').trim()
         println commit_id
     
-        stage "build"
-      def app = docker.build "docker_jenkins"
+        //stage "build"
+      //def app = docker.build "docker_jenkins"
     
         stage "publish"
         app.push 'master'
