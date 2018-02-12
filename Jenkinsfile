@@ -1,6 +1,5 @@
 node("docker") {
-    docker.withRegistry('https://hub.docker.com/r/contardorm/jenkins/', 'docker-hub-credentials')   {
-    
+      
         git url: "https://github.com/ContardoRM/Jenkins.git", credentialsId: 'git-hub-credentials'
     
         sh "git rev-parse HEAD > .git/commit-id"
@@ -14,4 +13,4 @@ node("docker") {
         app.push 'master'
         app.push "${commit_id}"
     }
-}
+
